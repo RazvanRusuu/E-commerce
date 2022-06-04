@@ -1,0 +1,26 @@
+.product__cart {
+  &-colors {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    & > span {
+      font-size: $default-font-size;
+    }
+  }
+  & .btn__cart-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+
+    & .check-icon {
+      color: $color-white;
+      font-size: $default-font-size;
+    }
+  }
+}

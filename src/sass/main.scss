@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/grid";
+
+@import "layout/container";
+
+@import "components/button";
+@import "components/cartButtons";
+@import "components/errorPage";
+@import "components/pageHero";
+@import "components/featuredProducts";
+@import "components/services";
+@import "components/contact";
+@import "components/spinner";
+@import "components/sectionCenter";
+@import "components/productImage";
+@import "components/cart";
+@import "components/amountButtons";
+@import "components/filters";
+@import "components/product";
+@import "components/gridView";
+
+@import "components/sidebar";
+
+@import "pages/about";
+@import "pages/home";
+@import "pages/singleProduct";
+@import "pages/productsPage";
+
+@import "pages/checkoutPage";

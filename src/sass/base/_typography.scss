@@ -1,0 +1,32 @@
+.heading-primary {
+  font-size: 7rem;
+}
+
+.heading-secondary {
+  font-size: 4rem;
+}
+
+.heading-secondary--after {
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    height: 0.5rem;
+    bottom: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $color-secondary-dark;
+  }
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+}
+
+.paragraph {
+  font-size: $default-font-size;
+  color: $color-grey-light-1;
+  line-height: 2;
+}

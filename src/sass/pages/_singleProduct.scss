@@ -1,0 +1,35 @@
+.section__product {
+  padding: 10rem 0;
+  background-color: $color-primary-dark;
+
+  & .product__container-content {
+    & .product-name {
+      text-transform: capitalize;
+      margin-bottom: 2rem;
+    }
+
+    & .product-price {
+      color: $color-secondary-light;
+      font-size: 2rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    & .product__info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid $color-secondary-dark;
+
+      & span {
+        font-size: $default-font-size;
+      }
+      & span:nth-child(odd) {
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.error__section {
+  min-height: calc(100vh - 10rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: $color-primary;
+
+  & .heading-primary--error {
+    font-size: 10rem;
+  }
+}

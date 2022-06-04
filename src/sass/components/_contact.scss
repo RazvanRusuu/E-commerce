@@ -1,0 +1,32 @@
+.section__contact {
+  background-color: $color-primary-dark;
+  padding-bottom: 10rem;
+
+  & .contact__form {
+    & .contact__label {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    & .contact__input {
+      width: 100%;
+      font-family: inherit;
+      padding: 1rem;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 2rem;
+
+      &:focus {
+        outline: 2px solid $color-secondary-dark;
+      }
+    }
+
+    & .btn-subscribe {
+      background-color: $color-secondary-dark-1;
+      padding: 1rem;
+      border-radius: 5px;
+      color: $color-white;
+    }
+  }
+}

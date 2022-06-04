@@ -1,0 +1,8 @@
+.section__center {
+  height: calc(100vh - 20rem);
+  padding: 5rem;
+  background-color: $color-primary-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

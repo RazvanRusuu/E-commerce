@@ -1,0 +1,18 @@
+.cart__amount-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  & span {
+    font-size: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .btn-decrease,
+  & .btn-increase {
+    font-size: 3rem;
+  }
+}

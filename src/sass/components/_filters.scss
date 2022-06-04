@@ -1,0 +1,67 @@
+.filters {
+  position: sticky;
+  top: 1rem;
+
+  @include respond(tab-port) {
+    position: relative;
+  }
+
+  & .form {
+    padding: 2rem 1rem;
+    color: $color-grey-light-1;
+
+    & .form-control {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      & input {
+        padding: 1rem;
+        font-size: $default-font-size;
+        font-family: inherit;
+        background-color: $color-primary-light;
+        border-radius: 5px;
+
+        &::placeholder {
+          color: $color-primary-dark;
+        }
+        &:focus {
+          outline: 3px solid $color-secondary-dark;
+          background-color: $color-grey-light-2;
+        }
+      }
+      &--title {
+        font-size: 2rem;
+        color: $color-secondary-dark;
+        margin-bottom: 2rem;
+      }
+
+      & .form-list {
+        list-style: none;
+
+        & li {
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+
+          & .form-btn {
+            display: block;
+            font-size: $default-font-size;
+            color: $color-grey-light-1;
+            text-transform: capitalize;
+
+            &.active {
+              color: $color-secondary-dark;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      & select {
+        font-size: $default-font-size;
+        padding: 5px;
+        width: 100%;
+      }
+    }
+  }
+}

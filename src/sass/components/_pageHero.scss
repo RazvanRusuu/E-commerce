@@ -1,0 +1,13 @@
+.section-about {
+  background-color: $color-secondary-dark;
+
+  & .about__header {
+    height: 15rem;
+    display: flex;
+    align-items: center;
+
+    & h1 {
+      font-size: 3rem;
+    }
+  }
+}

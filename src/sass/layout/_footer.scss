@@ -1,0 +1,11 @@
+.footer {
+  padding: 4rem 0;
+  background-color: $color-secondary-dark;
+  color: $color-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & h4 {
+    font-size: 2rem;
+  }
+}

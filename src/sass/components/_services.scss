@@ -1,0 +1,17 @@
+.section__services {
+  background-color: $color-primary-dark;
+  padding-bottom: 10rem;
+
+  & .services__article {
+    background-color: $color-primary;
+    border-radius: 1rem;
+    padding: 4rem;
+
+    & .services__icon {
+      font-size: 5rem;
+      display: block;
+      text-align: center;
+      color: $color-secondary-dark;
+    }
+  }
+}

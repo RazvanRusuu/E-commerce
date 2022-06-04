@@ -1,0 +1,62 @@
+.btn {
+  border: none;
+  cursor: pointer;
+  background: none;
+  transition: $main-transition;
+  color: $color-secondary-dark;
+  font-size: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.link-main {
+  &:link,
+  &:visited {
+    color: $color-primary-dark;
+  }
+
+  &:hover,
+  &:active {
+    position: relative;
+    // border-bottom: 3px solid $color-primary-dark;
+    &::after {
+      @include after;
+    }
+  }
+}
+
+.link-btn {
+  &:link,
+  &:visited {
+    font-size: 2rem;
+    color: $color-grey-light-1;
+    font-weight: 500;
+    background-color: $color-secondary-dark-1;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    transition: $main-transition;
+  }
+
+  &:hover {
+    background-color: $color-secondary-dark-2;
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.6);
+
+    transform: translateY(-3px);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.6);
+  }
+}
+.btn-small {
+  font-size: 1.6rem;
+}
+.link-product {
+  display: block;
+  text-align: center;
+  width: 20rem;
+  margin: 0 auto;
+}

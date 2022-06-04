@@ -1,0 +1,23 @@
+import React from "react";
+import { FaShoppingCart, FaUserMinus, FaUserPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useProductsContext } from "../context/products_context";
+
+const CartButtons = () => {
+  const { closeSidebar } = useProductsContext();
+  return (
+    <div className="cart__btns">
+      <Link to={"/cart"} className="cart__btn">
+        <span className="cart-container" onClick={closeSidebar}>
+          <FaShoppingCart className="btn__icon" />
+          <span className="cart-value">12</span>
+        </span>
+      </Link>
+      <button type="button" className="btn auth-btn">
+        <FaUserPlus className="btn__icon" />
+      </button>
+    </div>
+  );
+};
+
+export default CartButtons;

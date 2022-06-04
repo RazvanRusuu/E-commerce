@@ -1,0 +1,44 @@
+.grid {
+  display: grid;
+}
+
+.grid-2--cols {
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-autofit {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4rem;
+}
+.grid-autofit-products {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4rem;
+}
+
+.grid-autofill {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.grid-2--cols-1 {
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-2--cols-products {
+  grid-template-columns: 25rem 1fr;
+  gap: 4rem;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+  }
+}
