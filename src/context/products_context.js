@@ -15,7 +15,6 @@ import {
 
 const initialState = {
   isSidebarOpen: false,
-  // product_loading: false,
   products_loading: false,
   products_error: false,
   products: [],

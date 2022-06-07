@@ -7,7 +7,6 @@
 }
 
 html {
-  overflow-x: hidden;
   // This defines what 1rem is
   font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
 
@@ -31,7 +30,6 @@ body {
   // background-color: $color-primary-dark;
   color: $color-white;
   font-family: "Montserrat", sans-serif;
-  overflow-x: hidden;
 }
 
 ::selection {

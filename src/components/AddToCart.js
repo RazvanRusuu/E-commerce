@@ -5,6 +5,8 @@ import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 
 const AddToCart = (props) => {
+  const { addToCart } = useCartContext();
+
   const {
     product: { id, stock, colors },
   } = props;
@@ -48,7 +50,11 @@ const AddToCart = (props) => {
         onIncrease={increaseHandler}
         onDecrease={decreaseHandler}
       />
-      <Link to="/cart" className="link link-btn btn-small">
+      <Link
+        to="/cart"
+        className="link link-btn btn-small "
+        onClick={() => addToCart(id, amount, props.product)}
+      >
         Add To Cart
       </Link>
     </div>

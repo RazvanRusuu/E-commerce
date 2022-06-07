@@ -8,6 +8,26 @@
   bottom: -2px;
   left: 0;
 }
+@mixin btn-active {
+  transform: translateY(0);
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.6);
+}
+
+@mixin btn-hover {
+  box-shadow: 0 1rem 1rem rgba($color-black, 0.6);
+  transform: translateY(-3px);
+}
+
+@mixin select {
+  font-size: $default-font-size;
+  font-family: inherit;
+  padding: 0.3rem;
+  border-radius: 5px;
+
+  &:focus {
+    outline: 2px solid $color-secondary-dark;
+  }
+}
 
 // MEDIA QUERY MANAGER
 /*

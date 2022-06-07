@@ -27,7 +27,7 @@ const Contact = () => {
               required
               placeholder="enter Email"
             />
-            <button className="btn link-btn btn-subscribe">Subscribe</button>
+            <button className="btn btn-main">Subscribe</button>
           </div>
         </form>
       </div>

@@ -29,6 +29,8 @@
 @import "components/filters";
 @import "components/product";
 @import "components/gridView";
+@import "components/listView";
+@import "components/sort";
 
 @import "components/sidebar";
 
@@ -36,5 +38,6 @@
 @import "pages/home";
 @import "pages/singleProduct";
 @import "pages/productsPage";
+@import "pages/cart";
 
 @import "pages/checkoutPage";

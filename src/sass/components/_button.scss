@@ -1,5 +1,6 @@
 .btn {
   border: none;
+  font-family: inherit;
   cursor: pointer;
   background: none;
   transition: $main-transition;
@@ -7,8 +8,32 @@
   font-size: 2rem;
 }
 
+.btn-main {
+  background-color: $color-secondary-dark-1;
+  padding: 1rem;
+  border-radius: 5px;
+  color: $color-white;
+
+  @include respond(phone) {
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    @include btn-hover;
+  }
+  &:active {
+    @include btn-active;
+  }
+
+  &--small {
+    font-size: $default-font-size;
+    padding: 0.5rem;
+  }
+}
+
 .link {
   text-decoration: none;
+  transition: $main-transition;
   display: inline-block;
 }
 
@@ -33,26 +58,27 @@
   &:visited {
     font-size: 2rem;
     color: $color-grey-light-1;
-    font-weight: 500;
     background-color: $color-secondary-dark-1;
     padding: 1rem 2rem;
     border-radius: 1rem;
     transition: $main-transition;
+
+    @include respond(phone) {
+      font-size: $default-font-size;
+    }
   }
 
   &:hover {
     background-color: $color-secondary-dark-2;
-    box-shadow: 0 1rem 1rem rgba($color-black, 0.6);
-
-    transform: translateY(-3px);
+    @include btn-hover;
   }
   &:active {
-    transform: translateY(0);
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.6);
+    @include btn-active;
   }
 }
-.btn-small {
+.link-btn.btn-small {
   font-size: 1.6rem;
+  padding: 0.5rem 1rem;
 }
 .link-product {
   display: block;

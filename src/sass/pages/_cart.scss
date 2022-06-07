@@ -1,0 +1,111 @@
+.cart {
+  min-height: calc(100vh - 20rem);
+  padding: 10rem 0;
+  background-color: $color-primary-dark;
+
+  &__container {
+    max-width: 90rem;
+    padding: 10rem 5%;
+
+    @include respond(phone) {
+      padding: 2rem 1rem;
+    }
+    @include respond(tab-port) {
+      padding: 2rem 10%;
+    }
+    &-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__labels {
+    justify-items: center;
+    gap: 0;
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+  &__label {
+    color: $color-primary-dark;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+    background-color: $color-grey-light-1;
+
+    &:not(:last-child) {
+      border-right: 2px solid $color-primary-dark;
+    }
+    &-span {
+      grid-column: 4 / span 2;
+    }
+  }
+
+  &__item {
+    padding: 3rem 0;
+    grid-row: 2/-1;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid $color-secondary-dark;
+    font-size: $default-font-size;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    &-img {
+      width: 15rem;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 5px;
+
+      @include respond(phone) {
+        width: 10rem;
+      }
+    }
+
+    &-price {
+      &--mobile {
+        font-size: $default-font-size;
+        margin-top: 1rem;
+        color: $color-secondary-dark;
+        display: none;
+
+        @include respond(phone) {
+          display: block;
+        }
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+    & .cart__amount-container {
+      @include respond(phone) {
+        flex-direction: column-reverse;
+        gap: 0;
+      }
+    }
+
+    &-subtotal {
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    & .cart-btn--red {
+      color: rgb(255, 0, 0);
+      font-size: 2.5rem;
+
+      @include respond(phone) {
+        justify-self: end;
+      }
+    }
+  }
+}

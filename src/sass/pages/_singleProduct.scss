@@ -3,6 +3,7 @@
   background-color: $color-primary-dark;
 
   & .product__container-content {
+    align-self: center;
     & .product-name {
       text-transform: capitalize;
       margin-bottom: 2rem;

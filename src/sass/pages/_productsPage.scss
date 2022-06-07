@@ -1,4 +1,8 @@
 .section__products {
   padding: 5rem 0;
   background-color: $color-primary-dark;
+
+  & .products-container {
+    padding-top: 2rem;
+  }
 }

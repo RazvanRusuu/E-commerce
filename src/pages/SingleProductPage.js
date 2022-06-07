@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
+import { useCartContext } from "../context/cart_context";
 import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
 
@@ -9,7 +10,6 @@ import {
   Error,
   ProductImages,
   AddToCart,
-  Stars,
   PageHero,
 } from "../components";
 
@@ -35,17 +35,7 @@ const SingleProductPage = () => {
     }
   }, [error]);
 
-  const {
-    name,
-    price,
-    description,
-    stock,
-    stars,
-    reviews,
-    id: sku,
-    company,
-    images,
-  } = product;
+  const { name, price, description, stock, id: sku, company, images } = product;
 
   const pageContent = (
     <>

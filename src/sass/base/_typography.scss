@@ -23,6 +23,14 @@
 
 .heading-tertiary {
   font-size: 3rem;
+  text-transform: capitalize;
+}
+
+.heading-tertiary-mobile {
+  display: none;
+  @include respond(phone) {
+    display: block;
+  }
 }
 
 .paragraph {

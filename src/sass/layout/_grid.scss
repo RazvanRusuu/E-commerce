@@ -10,13 +10,44 @@
     grid-template-columns: 1fr;
   }
 }
+.grid-5--cols {
+  grid-template-columns: 25rem repeat(3, 1fr) 2rem;
+  gap: 2rem;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.grid-2--cols-list {
+  grid-template-columns: 25rem 1fr;
+  gap: 3rem;
+
+  @include respond(tab-port) {
+    grid-template-columns: none;
+    grid-template-rows: 1fr;
+  }
+}
+
+.grid-sort {
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+
+  @include respond(phone) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+  }
+}
 
 .grid-autofit {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 4rem;
 }
-.grid-autofit-products {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.grid-autofill-products {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 4rem;
 }
 
@@ -35,7 +66,7 @@
 }
 
 .grid-2--cols-products {
-  grid-template-columns: 25rem 1fr;
+  grid-template-columns: 20rem 1fr;
   gap: 4rem;
 
   @include respond(tab-port) {

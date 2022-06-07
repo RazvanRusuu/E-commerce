@@ -4,7 +4,7 @@ import { useFilterContext } from "../context/filter_context";
 
 const GridView = (props) => {
   return (
-    <section className="section__grid-view grid grid-autofit-products">
+    <section className="section__grid-view grid grid-autofill-products">
       <Product products={props.products} className={"grid__view"}></Product>
     </section>
   );
