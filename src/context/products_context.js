@@ -70,8 +70,8 @@ export const ProductsProvider = ({ children }) => {
     <ProductsContext.Provider
       value={{
         ...state,
-        openSidebar: openSidebar,
-        closeSidebar: closeSidebar,
+        openSidebar,
+        closeSidebar,
         fetchSingleProduct,
       }}
     >

@@ -10,6 +10,21 @@
     grid-template-columns: 1fr;
   }
 }
+
+.grid-2--cols-1 {
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+
+  @include respond(tab-port) {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+  }
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .grid-5--cols {
   grid-template-columns: 25rem repeat(3, 1fr) 2rem;
   gap: 2rem;
@@ -54,15 +69,6 @@
 .grid-autofill {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3rem;
-}
-
-.grid-2--cols-1 {
-  grid-template-columns: 1fr 2fr;
-  gap: 4rem;
-
-  @include respond(tab-port) {
-    grid-template-columns: 1fr;
-  }
 }
 
 .grid-2--cols-products {

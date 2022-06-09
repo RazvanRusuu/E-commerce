@@ -2,9 +2,10 @@ import React from "react";
 import CartItem from "../components/CartItem";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/cart_context";
+import { formatPrice } from "../utils/helpers";
 
 const CartContent = () => {
-  const { cart, clearCart } = useCartContext();
+  const { cart, clearCart, total_amount } = useCartContext();
 
   let contentEmptyCart = (
     <div className="u-center">
@@ -43,7 +44,9 @@ const CartContent = () => {
           );
         })}
         <div className="cart__summary u-margin-top-medium">
-          <h3 className="heading-tertiary u-center">Total: </h3>
+          <h3 className="heading-tertiary u-center">
+            Total: {formatPrice(total_amount)}{" "}
+          </h3>
         </div>
         <div className="cart__container-buttons">
           <Link to={"/products"} className="link link-btn">

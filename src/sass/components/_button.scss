@@ -8,6 +8,25 @@
   font-size: 2rem;
 }
 
+.btn-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  display: none;
+  color: $color-secondary-dark;
+
+  @include respond(tab-port) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.btn-close {
+  color: $color-secondary-dark;
+  font-size: 3rem;
+}
+
 .btn-main {
   background-color: $color-secondary-dark-1;
   padding: 1rem;
@@ -29,12 +48,6 @@
     font-size: $default-font-size;
     padding: 0.5rem;
   }
-}
-
-.link {
-  text-decoration: none;
-  transition: $main-transition;
-  display: inline-block;
 }
 
 .link-main {

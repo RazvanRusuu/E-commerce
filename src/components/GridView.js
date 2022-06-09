@@ -3,9 +3,22 @@ import Product from "./Product";
 import { useFilterContext } from "../context/filter_context";
 
 const GridView = (props) => {
+  const { products } = props;
   return (
     <section className="section__grid-view grid grid-autofill-products">
-      <Product products={props.products} className={"grid__view"}></Product>
+      {products.map((product) => {
+        const { id, name, price, image } = product;
+        return (
+          <Product
+            id={id}
+            key={id}
+            name={name}
+            price={price}
+            image={image}
+            className="grid__view"
+          />
+        );
+      })}
     </section>
   );
 };

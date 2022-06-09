@@ -12,18 +12,14 @@
 
   &__header {
     padding: 2rem 5%;
-
     display: flex;
     justify-content: space-between;
 
-    & .btn-close {
-      border: none;
-      background: none;
-      cursor: pointer;
-      color: $color-secondary-dark;
-      font-size: 3rem;
+    @include respond(tab-port) {
+      padding: 2rem 10%;
     }
   }
+
   &__links {
     list-style: none;
     margin: 2rem 0;
@@ -35,10 +31,6 @@
       padding: 2rem 1rem;
       transition: $main-transition;
 
-      &:link,
-      &:visited {
-        text-decoration: none;
-      }
       &:active,
       &:hover {
         background-color: $color-secondary-dark;

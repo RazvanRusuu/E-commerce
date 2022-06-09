@@ -8,12 +8,17 @@ import { useProductsContext } from "../context/products_context";
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
+
   return (
     <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
       <div className="sidebar__container">
         <div className="sidebar__header">
           <img src={logo} alt="logo" className="header__logo" />
-          <button onClick={closeSidebar} type="button" className="btn-close">
+          <button
+            onClick={closeSidebar}
+            type="button"
+            className="btn btn-close"
+          >
             <FaTimes />
           </button>
         </div>

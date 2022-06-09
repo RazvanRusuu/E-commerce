@@ -28,6 +28,11 @@
     outline: 2px solid $color-secondary-dark;
   }
 }
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 // MEDIA QUERY MANAGER
 /*

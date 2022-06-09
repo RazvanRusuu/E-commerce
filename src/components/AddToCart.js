@@ -5,7 +5,7 @@ import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 
 const AddToCart = (props) => {
-  const { addToCart } = useCartContext();
+  const { addToCart, countCartTotals } = useCartContext();
 
   const {
     product: { id, stock, colors },

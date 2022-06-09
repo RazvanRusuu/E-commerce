@@ -36,3 +36,9 @@ body {
   background-color: $color-primary;
   color: $color-white;
 }
+
+.link {
+  text-decoration: none;
+  transition: $main-transition;
+  display: inline-block;
+}

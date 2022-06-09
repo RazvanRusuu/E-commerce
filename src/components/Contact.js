@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
     <section className="section__contact">
-      <h2 className="heading-secondary u-margin-bottom-big u-center heading-secondary--after">
+      <h2 className="heading-secondary heading-secondary--after u-margin-bottom-big u-center ">
         Contact
       </h2>
       <div className="container grid grid-2--cols ">

@@ -4,9 +4,9 @@ import about from "../assets/about.jpg";
 
 const AboutPage = () => {
   return (
-    <main className="about-page">
+    <main>
       <PageHero title="About" />
-      <section className="section-about--center">
+      <section className="about">
         <div className="container grid grid-2--cols">
           <div className="about__img-container">
             <img className="about__image" src={about} alt="furniture" />

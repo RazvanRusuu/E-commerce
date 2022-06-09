@@ -3,7 +3,6 @@ import logo from "../assets/logo.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
-import Button from "../UI/Button/Button";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "../context/products_context";
 
@@ -17,7 +16,7 @@ const Navbar = () => {
             <img src={logo} className="header__logo" alt="comfy sloth" />
           </Link>
         </div>
-        <button type="button" className="btn-toggle" onClick={openSidebar}>
+        <button type="button" className="btn btn-toggle" onClick={openSidebar}>
           <FaBars />
         </button>
         <ul className="header__links">
@@ -32,7 +31,7 @@ const Navbar = () => {
             );
           })}
           <li>
-            <Link className=" link header__link" to="/checkout">
+            <Link className="link header__link" to="/checkout">
               checkout
             </Link>
           </li>

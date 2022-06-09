@@ -6,8 +6,8 @@ import hero3 from "../assets/hero3.jpg";
 
 const Hero = () => {
   return (
-    <section className="section__hero">
-      <div className="container section__hero--container grid grid-2--cols-1 ">
+    <section className="hero section__hero">
+      <div className="container hero__container grid grid-2--cols-1">
         <div className="hero__text-container">
           <h1 className="heading-primary heading-primary--hero u-margin-bottom-medium ">
             <span className="hero__heading">Furniture </span>

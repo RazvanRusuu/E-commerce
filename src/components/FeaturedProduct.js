@@ -22,10 +22,19 @@ const FeaturedProduct = () => {
       {error && <Error />}
       {!loading && !error && (
         <div className="container section__featured-container grid grid-autofit">
-          <Product
-            products={products.slice(0, 3)}
-            className={"product__featured"}
-          />
+          {products.slice(0, 3).map((product) => {
+            const { name, price, image, id } = product;
+            return (
+              <Product
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                price={price}
+                className={"product__featured"}
+              />
+            );
+          })}
         </div>
       )}
       <Link className="link link-btn link-product" to="/products">

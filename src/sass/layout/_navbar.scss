@@ -12,6 +12,7 @@
   &__logo {
     width: 4rem;
   }
+
   &__links {
     list-style: none;
     display: flex;
@@ -21,42 +22,27 @@
     & li {
       &:hover {
         transform: scale(1.1);
-        box-shadow: 0 1rem 2rem rgba($color-primary, $alpha: 0.7);
+        box-shadow: 0 0.5rem 1rem rgba($color-primary, $alpha: 0.7);
       }
     }
 
     & .header__link {
-      &:visited,
-      &:link {
+      &:link,
+      &:visited {
         text-transform: capitalize;
-        text-decoration: none;
         color: $color-white;
         font-size: 1.8rem;
         padding: 0.5rem;
       }
 
-      &:active,
-      &:hover {
+      &:hover,
+      &:active {
         color: $color-secondary-dark;
       }
     }
 
     @include respond(tab-port) {
       display: none;
-    }
-  }
-
-  & .btn-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 3rem;
-    display: none;
-    color: $color-secondary-dark;
-
-    @include respond(tab-port) {
-      display: flex;
-      align-items: center;
     }
   }
 
