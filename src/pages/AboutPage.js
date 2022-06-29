@@ -14,7 +14,7 @@ const AboutPage = () => {
           <article className="about-article">
             <h2 className="heading-secondary">
               Our Story
-              <div className="underline u-margin-bottom-medium"></div>
+              <span className="underline u-margin-bottom-medium"></span>
             </h2>
             <p className="paragraph about-description">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae

@@ -6,7 +6,6 @@ import Hero from "./Hero";
 import Contact from "./Contact";
 import Services from "./Services";
 import Error from "./Error";
-import Stars from "./Stars";
 import PageHero from "./PageHero";
 import AddToCart from "./AddToCart";
 import ProductImages from "./ProductImages";
@@ -15,6 +14,8 @@ import Sort from "./Sort";
 import Loading from "./Loading";
 import ProductList from "./ProductList";
 import ListView from "./ListView";
+import Modal from "./Modal";
+import Login from "./Login";
 
 export {
   Footer,
@@ -25,7 +26,6 @@ export {
   Contact,
   Services,
   Error,
-  Stars,
   PageHero,
   AddToCart,
   Loading,
@@ -34,4 +34,6 @@ export {
   Sort,
   ProductList,
   ListView,
+  Modal,
+  Login,
 };

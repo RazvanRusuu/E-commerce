@@ -1,0 +1,60 @@
+.login__container {
+  position: fixed;
+  background-color: $color-white;
+  box-shadow: 0.2rem 0.2rem 0.2rem rgba($color-primary-dark, $alpha: 1);
+  border-radius: 3px;
+
+  width: 40rem;
+  max-width: 50rem;
+  padding: 4rem 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 9999;
+
+  @include respond(phone) {
+    padding: 2rem 3rem;
+    width: 80%;
+  }
+
+  & h2 {
+    margin-bottom: 4rem;
+    color: $color-primary-dark;
+  }
+
+  & .form-controls {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    min-height: 6rem;
+
+    & label {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 600;
+      color: $color-primary-dark;
+    }
+
+    & input {
+      padding: 1.2rem;
+      border: none;
+      border-bottom: 1px solid $color-secondary-dark;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0.1rem 0.3rem 0.2rem
+          rgba($color-secondary-dark, $alpha: 0.8);
+      }
+    }
+  }
+
+  & .paragraph__modal {
+    color: $color-primary-dark;
+    margin-top: 1rem;
+  }
+
+  & .login__btns {
+    margin-top: 4rem;
+  }
+}

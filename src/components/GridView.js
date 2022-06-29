@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "./Product";
-import { useFilterContext } from "../context/filter_context";
 
 const GridView = (props) => {
   const { products } = props;

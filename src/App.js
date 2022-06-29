@@ -1,17 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import {
   Home,
   SingleProduct,
   Cart,
-  Checkout,
+  // Checkout,
   Error,
   About,
   Products,
-  PrivateRoute,
 } from "./pages";
 import { Navbar, Sidebar, Footer } from "./components/index";
+import { useUserContext } from "./context/user_context";
 
 function App() {
   return (
@@ -24,7 +24,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<SingleProduct />} />
-        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

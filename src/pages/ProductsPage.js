@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { PageHero } from "../components";
-import { Loading } from "../components";
 
 import { useFilterContext } from "../context/filter_context";
 import { Filters, Sort, ProductList } from "../components";
 
 const ProductsPage = () => {
-  // const { all_products: products } = useFilterContext();
   const { isLoading } = useFilterContext();
 
   return (

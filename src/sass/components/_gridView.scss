@@ -1,16 +1,16 @@
 .section__grid-view {
   padding-top: 4rem;
   & .product__article {
-    & .product__figure {
+    &-figure {
       height: 15rem;
     }
-  }
 
-  & .product__article--content {
-    padding: 2rem;
+    &-content {
+      padding: 2rem;
 
-    & .product__name {
-      font-size: 1.6rem;
+      & .product__name {
+        font-size: 1.6rem;
+      }
     }
   }
 }

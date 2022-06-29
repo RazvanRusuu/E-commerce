@@ -1,6 +1,5 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import reducer from "../reducers/filter_reducer";
-import { Loading } from "../components";
 import {
   LOAD_PRODUCTS,
   LOADING,

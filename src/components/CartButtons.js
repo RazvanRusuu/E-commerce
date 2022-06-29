@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { useCartContext } from "../context/cart_context";
 
-const CartButtons = () => {
+const CartButtons = (props) => {
   const { total_items: items } = useCartContext();
-
   const { closeSidebar } = useProductsContext();
   return (
     <div className="cart__btns">
@@ -16,7 +15,7 @@ const CartButtons = () => {
           <span className="cart-value">{items}</span>
         </span>
       </Link>
-      <button type="button" className="btn auth-btn">
+      <button type="button" className="btn auth-btn" onClick={props.onClick}>
         <FaUserPlus className="btn__icon" />
       </button>
     </div>

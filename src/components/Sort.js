@@ -33,7 +33,7 @@ const Sort = () => {
         <p className="paragraph">{products.length} products found</p>
         <div className="horizontal-line"></div>
         <form action="" className="sort-form">
-          <label htmlFor="sort">Sorty By</label>
+          <label htmlFor="sort">Sort By</label>
           <select
             name="sort"
             value={sort}

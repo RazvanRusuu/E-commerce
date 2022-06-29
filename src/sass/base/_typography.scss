@@ -5,6 +5,10 @@
 .heading-secondary {
   font-size: 4rem;
 }
+.heading-secondary--dark {
+  font-size: 4rem;
+  color: $color-secondary-dark;
+}
 
 .heading-secondary--after {
   position: relative;

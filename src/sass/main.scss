@@ -31,6 +31,8 @@
 @import "components/gridView";
 @import "components/listView";
 @import "components/sort";
+@import "components/backdrop";
+@import "components/loginModal";
 
 @import "components/sidebar";
 
@@ -39,5 +41,3 @@
 @import "pages/singleProduct";
 @import "pages/productsPage";
 @import "pages/cart";
-
-@import "pages/checkoutPage";

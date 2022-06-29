@@ -5,9 +5,11 @@ import { FaTimes } from "react-icons/fa";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "../context/products_context";
+import { useUserContext } from "../context/user_context";
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext();
+  const { openModal, closeModal } = useUserContext();
 
   return (
     <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
@@ -37,18 +39,10 @@ const Sidebar = () => {
               </li>
             );
           })}
-          <li>
-            <Link
-              className="link sidebar__link"
-              to="/checkout"
-              onClick={closeSidebar}
-            >
-              checkout
-            </Link>
-          </li>
+          <li></li>
         </ul>
         <div className="sidebar__btns">
-          <CartButtons />
+          <CartButtons onClick={openModal} />
         </div>
       </div>
     </aside>
