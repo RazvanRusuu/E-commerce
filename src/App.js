@@ -1,4 +1,6 @@
 import React from "react";
+import Aos from "aos";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import {
@@ -14,6 +16,8 @@ import { Navbar, Sidebar, Footer } from "./components/index";
 import { useUserContext } from "./context/user_context";
 
 function App() {
+  Aos.init();
+
   return (
     <Router>
       <Navbar />

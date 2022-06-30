@@ -14,7 +14,12 @@ const FeaturedProduct = () => {
   } = useProductsContext();
 
   return (
-    <section className="section__featured">
+    <section
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      className="section__featured"
+    >
       <h2 className="heading-secondary heading-secondary--after u-margin-bottom-big u-center ">
         Featured Products
       </h2>

@@ -14,7 +14,6 @@
   cursor: pointer;
   font-size: 3rem;
   display: none;
-  color: $color-secondary-dark;
 
   @include respond(tab-port) {
     display: flex;
@@ -23,7 +22,6 @@
 }
 
 .btn-close {
-  color: $color-secondary-dark;
   font-size: 3rem;
 }
 .btn-close-modal {
@@ -32,28 +30,28 @@
   right: 5%;
 }
 
-.btn__submit {
-  display: block;
+.btn-modal {
+  font-size: 1.6rem;
+}
+.btn__submit,
+.btn-main {
+  border-radius: 2px;
+  color: $color-white;
   background-color: $color-secondary-dark;
   background-image: linear-gradient(135deg, rgb(214, 132, 8), rgb(126, 67, 0));
-  color: #eee;
+}
+
+.btn__submit {
+  display: block;
   padding: 1rem 2rem;
-  border-radius: 2px;
   width: 100%;
 
   &:hover {
-    background-image: linear-gradient(
-      -135deg,
-      rgb(214, 132, 8),
-      rgb(126, 67, 0)
-    );
+    @include btn-hover;
   }
 }
 .btn-main {
-  background-color: $color-secondary-dark-1;
   padding: 1rem;
-  border-radius: 5px;
-  color: $color-white;
 
   @include respond(phone) {
     font-size: $default-font-size;
@@ -93,7 +91,12 @@
   &:visited {
     font-size: 2rem;
     color: $color-grey-light-1;
-    background-color: $color-secondary-dark-1;
+    background-color: $color-secondary-dark;
+    background-image: linear-gradient(
+      135deg,
+      rgb(214, 132, 8),
+      rgb(126, 67, 0)
+    );
     padding: 1rem 2rem;
     border-radius: 1rem;
     transition: $main-transition;

@@ -7,6 +7,45 @@ const Login = () => {
   const { closeModal } = useUserContext();
   const [newMember, setNewMember] = useState(false);
 
+  const passwordInputContent = (
+    <div className="form-controls">
+      <label htmlFor="password">Confirm Password</label>
+      <input
+        type="password"
+        id="password"
+        className="password"
+        required
+        placeholder="Enter password"
+      ></input>
+    </div>
+  );
+
+  const buttonStateContent = (content) => {
+    const btn = (
+      <button type="submit" className="btn btn__submit">
+        {content}
+      </button>
+    );
+    return btn;
+  };
+
+  const buttonToggleContent = (paragraph, content, fn) => {
+    const contentEl = (
+      <p className="paragraph paragraph__modal">
+        {paragraph}
+        <button type="button" className="btn btn-modal" onClick={fn}>
+          {content}
+        </button>
+      </p>
+    );
+
+    return contentEl;
+  };
+
+  const toggleSigninButton = () => {
+    setNewMember(!newMember);
+  };
+
   return (
     <div className="login__container">
       <h2 className="heading-secondary heading-secondary--dark u-center">
@@ -31,65 +70,25 @@ const Login = () => {
           ></input>
         </div>
 
-        <div className="form-controls">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            className="password"
-            required
-            placeholder="Enter password"
-          ></input>
-        </div>
+        {passwordInputContent}
+        {newMember && passwordInputContent}
 
-        {newMember && (
-          <div className="form-controls">
-            <label htmlFor="password">Confirm Password</label>
-            <input
-              type="password"
-              id="password"
-              className="password"
-              required
-              placeholder="Enter password"
-            ></input>
-          </div>
-        )}
         <div className="login__btns">
-          {!newMember && (
-            <button type="submit" className="btn btn__submit">
-              LOGIN
-            </button>
-          )}
-          {newMember && (
-            <button type="submit" className="btn btn__submit">
-              SIGNUP
-            </button>
-          )}
+          {!newMember && buttonStateContent("LOGIN")}
+          {newMember && buttonStateContent("SIGN UP")}
         </div>
-        {!newMember && (
-          <p className="paragraph paragraph__modal">
-            Not a member yet?
-            <button
-              type="button"
-              className="btn"
-              onClick={() => setNewMember(!newMember)}
-            >
-              Signup now
-            </button>
-          </p>
-        )}
-        {newMember && (
-          <p className="paragraph paragraph__modal">
-            Already have an account?
-            <button
-              type="button"
-              className="btn"
-              onClick={() => setNewMember(!newMember)}
-            >
-              Sign in
-            </button>
-          </p>
-        )}
+        {!newMember &&
+          buttonToggleContent(
+            "Not a member yet?",
+            "Sign up",
+            toggleSigninButton
+          )}
+        {newMember &&
+          buttonToggleContent(
+            "Already have an account?",
+            "Sign in",
+            toggleSigninButton
+          )}
       </form>
     </div>
   );

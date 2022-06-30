@@ -2,7 +2,12 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="section__contact">
+    <section
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      className="section__contact"
+    >
       <h2 className="heading-secondary heading-secondary--after u-margin-bottom-big u-center ">
         Contact
       </h2>

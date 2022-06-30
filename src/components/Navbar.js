@@ -41,11 +41,6 @@ const Navbar = () => {
                 </li>
               );
             })}
-            <li>
-              {/* <Link className="link header__link" to="/checkout">
-              checkout
-            </Link> */}
-            </li>
           </ul>
           <div className="nav__btns">
             <CartButtons onClick={openModal} />

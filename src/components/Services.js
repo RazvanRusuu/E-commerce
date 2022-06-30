@@ -3,7 +3,12 @@ import { services } from "../utils/constants";
 
 const Services = () => {
   return (
-    <section className="section__services">
+    <section
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1000"
+      className="section__services"
+    >
       <h2 className="heading-secondary u-margin-bottom-big u-center heading-secondary--after">
         Services
       </h2>

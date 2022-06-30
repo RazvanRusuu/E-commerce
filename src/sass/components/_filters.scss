@@ -3,6 +3,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+
   @include respond(tab-port) {
     position: relative;
     background-color: initial;
@@ -11,8 +12,6 @@
   & .form {
     max-height: 100vh;
     padding: 2rem 1rem;
-
-    color: $color-grey-light-1;
 
     @include respond(tab-port) {
       width: 30rem;
@@ -60,12 +59,8 @@
           padding: 0.5rem;
 
           &.active {
-            box-shadow: 0 0.1rem 0.2rem rgba($color-grey-light-1, $alpha: 0.2);
+            border-bottom: 1px solid $color-primary-light;
             padding-left: 2rem;
-          }
-
-          &:not(:last-child) {
-            // margin-bottom: 1rem;
           }
 
           & .form-btn {
