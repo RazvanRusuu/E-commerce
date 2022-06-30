@@ -43,8 +43,15 @@
 
       &:focus {
         outline: none;
+        border-bottom: 1px solid transparent;
         box-shadow: 0.1rem 0.3rem 0.2rem
           rgba($color-secondary-dark, $alpha: 0.8);
+      }
+
+      &.isValid {
+        outline: none;
+        border-bottom: 1px solid transparent;
+        box-shadow: 0.1rem 0.3rem 0.2rem rgba(#008000, $alpha: 0.8);
       }
     }
   }

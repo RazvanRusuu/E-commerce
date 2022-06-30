@@ -1,3 +1,4 @@
+// products context actions
 export const SIDEBAR_OPEN = "SIDEBAR_OPEN";
 export const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";
 export const GET_PRODUCTS_BEGIN = "GET_PRODUCTS_BEGIN";
@@ -9,6 +10,7 @@ export const GET_SINGLE_PRODUCT_ERROR = "GET_SINGLE_PRODUCT_ERROR";
 export const LOAD_PRODUCTS = "LOAD_PRODUCTS";
 export const LOADING = "LOADING";
 
+// filtering, sorting, cart actions
 export const SET_GRIDVIEW = "SET_GRIDVIEW";
 export const SET_LISTVIEW = "SET_LISTVIEW";
 export const UPDATE_SORT = "UPDATE_SORT";
@@ -22,5 +24,15 @@ export const TOGGLE_CART_ITEM_AMOUNT = "TOGGLE_CART_ITEM_AMOUNT";
 export const CLEAR_CART = "CLEAR_CART";
 export const COUNT_CART_TOTALS = "COUNT_CART_TOTALS";
 
+// login actions
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
+export const RESET_ON_CLOSE = "RESET_ON_CLOSE";
+export const FORM_VALIDATION = "FORM_VALIDATION";
+export const USER_INPUT_EMAIL = "USER_INPUT_EMAIL";
+export const USER_INPUT_PASSWORD = "USER_INPUT_PASSWORD";
+export const USER_INPUT_CONFIRM_PASSOWROD = "USER_INPUT_CONFIRM_PASSWORD";
+
+export const INPUT_BLUR_EMAIL = "INPUT_BLUR_EMAIL";
+export const INPUT_BLUR_PASSWORD = "INPUT_BLUR_PASSWORD";
+export const INPUT_BLUR_CONFIRM_PASSWORD = "INPUT_BLUR_CONFIRM_PASSWORD";

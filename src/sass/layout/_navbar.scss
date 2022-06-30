@@ -3,6 +3,10 @@
   padding: 2rem 0;
   background-color: $color-primary-dark;
 
+  @include respond(tab-port) {
+    background: transparent;
+  }
+
   &__container {
     display: flex;
     align-items: center;

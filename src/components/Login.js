@@ -1,24 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useUserContext } from "../context/user_context";
 
 const Login = () => {
-  const { closeModal } = useUserContext();
+  const {
+    closeModal,
+    emailIsValid,
+    passwordIsValid,
+    formIsValid,
+    emailChangeHandler,
+    passwordChangeHandler,
+    validateEmailHandler,
+    validatePasswordHandler,
+    validateConfirmPasswordHandler,
+  } = useUserContext();
   const [newMember, setNewMember] = useState(false);
-
-  const passwordInputContent = (
-    <div className="form-controls">
-      <label htmlFor="password">Confirm Password</label>
-      <input
-        type="password"
-        id="password"
-        className="password"
-        required
-        placeholder="Enter password"
-      ></input>
-    </div>
-  );
 
   const buttonStateContent = (content) => {
     const btn = (
@@ -46,6 +43,20 @@ const Login = () => {
     setNewMember(!newMember);
   };
 
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (formIsValid) {
+      closeModal();
+    } else if (!emailIsValid) {
+      emailInputRef.current.focus();
+    } else {
+      passwordInputRef.current.focus();
+    }
+  };
+
   return (
     <div className="login__container">
       <h2 className="heading-secondary heading-secondary--dark u-center">
@@ -58,31 +69,61 @@ const Login = () => {
       >
         <AiOutlineClose />
       </button>
-      <form className="login__form" onSubmit={(e) => e.preventDefault()}>
+
+      <form className="login__form" onSubmit={submitHandler}>
         <div className="form-controls">
           <label htmlFor="email">Email</label>
           <input
+            ref={emailInputRef}
+            onChange={emailChangeHandler}
+            onBlur={validateEmailHandler}
             id="email"
             type="mail"
-            className="input"
+            className={`${emailIsValid ? "isValid" : ""}`}
             required
             placeholder="Enter email"
           ></input>
         </div>
 
-        {passwordInputContent}
-        {newMember && passwordInputContent}
+        <div className="form-controls">
+          <label htmlFor="password">Enter Password</label>
+          <input
+            ref={passwordInputRef}
+            type="password"
+            id="password"
+            className={`${passwordIsValid ? "isValid" : ""}`}
+            required
+            title="min 6 valid characters, min 1 number, min 1 special character"
+            placeholder="Enter password"
+            onChange={passwordChangeHandler}
+            onBlur={validatePasswordHandler}
+          ></input>
+        </div>
+
+        {newMember && (
+          <div className="form-controls">
+            <label htmlFor="password">Confirm Password</label>
+            <input
+              type="password"
+              id="password"
+              required
+              placeholder="Confirm password"
+            ></input>
+          </div>
+        )}
 
         <div className="login__btns">
           {!newMember && buttonStateContent("LOGIN")}
           {newMember && buttonStateContent("SIGN UP")}
         </div>
+
         {!newMember &&
           buttonToggleContent(
             "Not a member yet?",
             "Sign up",
             toggleSigninButton
           )}
+
         {newMember &&
           buttonToggleContent(
             "Already have an account?",
