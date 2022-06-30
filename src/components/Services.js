@@ -12,7 +12,7 @@ const Services = () => {
       <h2 className="heading-secondary u-margin-bottom-big u-center heading-secondary--after">
         Services
       </h2>
-      <div className="container section__featured-container grid grid-autofill">
+      <div className="container section__featured-container grid grid-autofit">
         {services.map((service) => {
           const { id, title, icon, text } = service;
           return (
