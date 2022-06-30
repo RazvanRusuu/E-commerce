@@ -23,9 +23,9 @@
 .hero {
   &__container {
     height: 100%;
-    padding-top: 10rem;
 
     @include respond(tab-port) {
+      padding-top: 10rem;
       display: flex;
       justify-content: center;
       align-items: center;
