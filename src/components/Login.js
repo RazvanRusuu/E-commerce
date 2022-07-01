@@ -13,8 +13,8 @@ const Login = () => {
     passwordChangeHandler,
     validateEmailHandler,
     validatePasswordHandler,
-    validateConfirmPasswordHandler,
   } = useUserContext();
+
   const [newMember, setNewMember] = useState(false);
 
   const buttonStateContent = (content) => {
@@ -72,7 +72,6 @@ const Login = () => {
 
       <form className="login__form" onSubmit={submitHandler}>
         <div className="form-controls">
-          <label htmlFor="email">Email</label>
           <input
             ref={emailInputRef}
             onChange={emailChangeHandler}
@@ -83,10 +82,10 @@ const Login = () => {
             required
             placeholder="Enter email"
           ></input>
+          <label htmlFor="email">Email</label>
         </div>
 
         <div className="form-controls">
-          <label htmlFor="password">Enter Password</label>
           <input
             ref={passwordInputRef}
             type="password"
@@ -98,19 +97,8 @@ const Login = () => {
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           ></input>
+          <label htmlFor="password">Enter Password</label>
         </div>
-
-        {newMember && (
-          <div className="form-controls">
-            <label htmlFor="password">Confirm Password</label>
-            <input
-              type="password"
-              id="password"
-              required
-              placeholder="Confirm password"
-            ></input>
-          </div>
-        )}
 
         <div className="login__btns">
           {!newMember && buttonStateContent("LOGIN")}

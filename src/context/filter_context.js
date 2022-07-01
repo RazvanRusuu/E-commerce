@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useReducer } from "react";
 import reducer from "../reducers/filter_reducer";
 import {
   LOAD_PRODUCTS,
-  LOADING,
   SET_GRIDVIEW,
   SET_LISTVIEW,
   UPDATE_SORT,
@@ -41,10 +40,12 @@ const FilterContext = React.createContext({
 });
 
 export const FilterProvider = (props) => {
+  // get all products from products context;
   const { products } = useProductsContext();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
+    // dispatch action only when products are changed(not being undefined anymore)
     dispatch({ type: LOAD_PRODUCTS, payload: products });
   }, [products]);
 

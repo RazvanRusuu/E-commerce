@@ -1,9 +1,6 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
-import { act } from "react-dom/test-utils";
 import {
   LOAD_PRODUCTS,
-  LOADING,
   SET_GRIDVIEW,
   SET_LISTVIEW,
   UPDATE_SORT,
@@ -27,10 +24,6 @@ const filter_reducer = (state, action) => {
         price: maxPrice,
       },
     };
-  }
-
-  if (action.type === LOADING) {
-    return { ...state, isLoading: true };
   }
 
   if (action.type === SET_GRIDVIEW) {
@@ -62,7 +55,6 @@ const filter_reducer = (state, action) => {
   }
   if (action.type === UPDATE_FILTERS) {
     const { name, value } = action.payload;
-
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if (action.type === FILTER_PRODUCTS) {

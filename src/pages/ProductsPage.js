@@ -1,12 +1,9 @@
 import React from "react";
 import { PageHero } from "../components";
 
-import { useFilterContext } from "../context/filter_context";
 import { Filters, Sort, ProductList } from "../components";
 
 const ProductsPage = () => {
-  const { isLoading } = useFilterContext();
-
   return (
     <>
       <PageHero title="Products" />

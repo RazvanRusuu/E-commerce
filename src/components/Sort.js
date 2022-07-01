@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFilterContext } from "../context/filter_context";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 const Sort = () => {
@@ -10,8 +10,6 @@ const Sort = () => {
     sort,
     updateSort,
   } = useFilterContext();
-
-  const [sortBy, setSortBy] = useState("price-lowest");
 
   return (
     <section className="section__sort">

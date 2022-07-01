@@ -3,21 +3,12 @@ import Aos from "aos";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import {
-  Home,
-  SingleProduct,
-  Cart,
-  // Checkout,
-  Error,
-  About,
-  Products,
-} from "./pages";
+import { Home, SingleProduct, Cart, Error, About, Products } from "./pages";
 import { Navbar, Sidebar, Footer } from "./components/index";
-import { useUserContext } from "./context/user_context";
 
 function App() {
+  // initiliaze AOS library
   Aos.init();
-
   return (
     <Router>
       <Navbar />

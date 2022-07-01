@@ -9,7 +9,7 @@ const Contact = () => {
       className="section__contact"
     >
       <h2 className="heading-secondary heading-secondary--after u-margin-bottom-big u-center ">
-        Contact
+        Subscribe
       </h2>
       <div className="container grid grid-2--cols ">
         <div className="contact__text-container">

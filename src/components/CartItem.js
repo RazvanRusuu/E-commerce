@@ -5,7 +5,7 @@ import AmountButtons from "../components/AmountButtons";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const CartItem = (props) => {
-  const { id, name, price, amount, max, image } = props;
+  const { id, name, price, amount, image } = props;
   const { removeItem, toggleItemAmount } = useCartContext();
 
   const increaseHandler = () => {

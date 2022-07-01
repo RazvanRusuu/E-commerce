@@ -30,7 +30,6 @@ const CartContext = React.createContext({
   removeItem: () => {},
   toggleItemAmount: () => {},
   clearCart: () => {},
-  countCartTotals: () => {},
 });
 
 export const CartProvider = (props) => {
@@ -52,13 +51,11 @@ export const CartProvider = (props) => {
     dispatch({ type: CLEAR_CART });
   };
 
-  const countCartTotals = () => {};
-
   useEffect(() => {
     dispatch({ type: COUNT_CART_TOTALS });
-
     localStorage.setItem("item", JSON.stringify(state.cart));
   }, [state.cart]);
+
   useEffect(() => {});
 
   return (

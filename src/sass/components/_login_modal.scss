@@ -30,13 +30,17 @@
     min-height: 6rem;
 
     & label {
-      margin-bottom: 1rem;
-      font-size: 2rem;
+      margin-top: 0.8rem;
+      margin-left: 1.2rem;
+      font-size: 1.2rem;
       font-weight: 600;
+      display: block;
       color: $color-primary-dark;
+      transition: $main-transition;
     }
 
     & input {
+      font-size: 1.5rem;
       padding: 1.2rem;
       border: none;
       border-bottom: 1px solid $color-secondary-dark;
@@ -53,6 +57,12 @@
         border-bottom: 1px solid transparent;
         box-shadow: 0.1rem 0.3rem 0.2rem rgba(#008000, $alpha: 0.8);
       }
+    }
+
+    & input:placeholder-shown + label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4rem);
     }
   }
 

@@ -10,7 +10,7 @@ const CartContent = () => {
   let contentEmptyCart = (
     <div className="u-center">
       <h2 className="heading-secondary u-margin-bottom-medium">
-        Your card is empty
+        Your cart is empty
       </h2>
       <Link to={"/products"} className="link link-btn">
         Go to products
