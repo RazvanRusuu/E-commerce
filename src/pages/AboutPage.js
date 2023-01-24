@@ -31,5 +31,5 @@ const AboutPage = () => {
     </main>
   );
 };
-
+<div></div>
 export default AboutPage;
