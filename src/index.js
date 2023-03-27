@@ -8,22 +8,22 @@ import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
-import { Provider } from "react";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ProductsProvider>
-      <FilterProvider>
-        <CartProvider>
-          <UserProvider>
-            {/* <Provider store={store}> */}
-            <App />
-            {/* </Provider> */}
-          </UserProvider>
-        </CartProvider>
-      </FilterProvider>
-    </ProductsProvider>
+    <Provider store={store}>
+      <ProductsProvider>
+        <FilterProvider>
+          <CartProvider>
+            <UserProvider>
+              <App />
+            </UserProvider>
+          </CartProvider>
+        </FilterProvider>
+      </ProductsProvider>
+    </Provider>
   </React.StrictMode>
 );
 
