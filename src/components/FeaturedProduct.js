@@ -1,17 +1,19 @@
 import React from "react";
 import Product from "./Product";
-
+import { useGetAllProductsQuery } from "../slice/api-slice";
 import { Link } from "react-router-dom";
-import { useProductsContext } from "../context/products_context";
 import Error from "./Error";
 import Loading from "./Loading";
 
 const FeaturedProduct = () => {
   const {
-    products_loading: loading,
-    products_error: error,
-    featured_products: products,
-  } = useProductsContext();
+    data = {},
+    isFetching,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useGetAllProductsQuery();
+  const { products: allProducts, featuredProducts } = data;
 
   return (
     <section
@@ -23,11 +25,11 @@ const FeaturedProduct = () => {
       <h2 className="heading-secondary heading-secondary--after u-margin-bottom-big u-center ">
         Featured Products
       </h2>
-      {loading && <Loading />}
-      {error && <Error />}
-      {!loading && !error && (
+      {isLoading && <Loading />}
+      {isError && <Error />}
+      {!isLoading && !isError && (
         <div className="container section__featured-container grid grid-autofit">
-          {products.slice(0, 3).map((product) => {
+          {featuredProducts?.slice(0, 3)?.map((product) => {
             const { name, price, image, id } = product;
             return (
               <Product

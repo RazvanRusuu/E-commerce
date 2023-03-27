@@ -5,7 +5,11 @@ export const shopApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://course-api.com/" }),
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: (name) => "/react-store-products",
+      query: (products) => "/react-store-products",
+      transformResponse: (response) => {
+        const featuredProducts = response.filter((product) => product.featured);
+        return { products: response, featuredProducts };
+      },
     }),
   }),
 });
