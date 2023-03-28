@@ -10,9 +10,9 @@ export const shopApi = createApi({
         const featuredProducts = response.filter((product) => product.featured);
         return { products: response, featuredProducts };
       },
-      providesTags: (result, error, arg) =>
-        result
-          ? [...result.map(({ id }) => ({ type: "Product", id })), "Product"]
+      providesTags: ({ products }, error, arg) =>
+        products
+          ? [...products?.map(({ id }) => ({ type: "Product", id })), "Product"]
           : ["Product"],
     }),
     getProduct: builder.query({

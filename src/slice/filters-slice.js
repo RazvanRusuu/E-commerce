@@ -19,6 +19,14 @@ const filterSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
+    loadProducts: (state, { payload }) => {
+      const products = payload;
+      let maxPrice = Math.max(...products?.map((product) => product.price));
+
+      state.all_products = products;
+      state.filters.max_price = maxPrice;
+      state.filters.price = maxPrice;
+    },
     setGridView: (state, { payload }) => {
       state.grid_view = true;
     },
@@ -34,3 +42,13 @@ const filterSlice = createSlice({
     },
   },
 });
+
+export const {
+  loadProducts,
+  setGridView,
+  setListView,
+  updateSort,
+  updateFilters,
+  clearFilters,
+} = filterSlice.actions;
+export default filterSlice.reducer;

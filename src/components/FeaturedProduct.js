@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Product from "./Product";
 import { useGetAllProductsQuery } from "../slice/api-slice";
 import { Link } from "react-router-dom";
 import Error from "./Error";
 import Loading from "./Loading";
+import { loadProducts } from "../slice/filters-slice";
+import { useDispatch } from "react-redux";
 
 const FeaturedProduct = () => {
+  const dispatch = useDispatch();
   const {
     data = {},
     isFetching,
@@ -14,6 +17,10 @@ const FeaturedProduct = () => {
     isSuccess,
   } = useGetAllProductsQuery();
   const { products: allProducts, featuredProducts } = data;
+
+  useEffect(() => {
+    isSuccess && dispatch(loadProducts(allProducts));
+  }, [data]);
 
   return (
     <section
@@ -27,7 +34,7 @@ const FeaturedProduct = () => {
       </h2>
       {isLoading && <Loading />}
       {isError && <Error />}
-      {!isLoading && !isError && (
+      {isSuccess && (
         <div className="container section__featured-container grid grid-autofit">
           {featuredProducts?.slice(0, 3)?.map((product) => {
             const { name, price, image, id } = product;
