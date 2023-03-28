@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
+import { useGetProductQuery } from "../slice/api-slice";
 
 import {
   Loading,
@@ -13,28 +14,26 @@ import {
 } from "../components";
 
 const SingleProductPage = () => {
-  const {
-    single_product_loading: loading,
-    single_product_error: error,
-    single_product: product,
-    fetchSingleProduct,
-  } = useProductsContext();
   const { id } = useParams();
+  const {
+    data: product = {},
+    isSuccess,
+    isError,
+    isFetching,
+    isLoading,
+  } = useGetProductQuery(id);
+
+  const { name, price, description, stock, id: sku, company, images } = product;
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchSingleProduct(`${url}${id}`);
-  }, [id]);
-
-  useEffect(() => {
-    if (error) {
+    if (isError) {
       setTimeout(() => {
         navigate("/");
       }, 3000);
     }
-  }, [error]);
-
-  const { name, price, description, stock, id: sku, company, images } = product;
+  }, [isError]);
 
   const pageContent = (
     <>
@@ -68,9 +67,9 @@ const SingleProductPage = () => {
 
   return (
     <>
-      {loading && <Loading />}
-      {error && <Error />}
-      {!loading && !error && pageContent}
+      {isLoading && <Loading />}
+      {isError && <Error />}
+      {!isLoading && !isError && pageContent}
     </>
   );
 };

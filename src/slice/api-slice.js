@@ -10,8 +10,16 @@ export const shopApi = createApi({
         const featuredProducts = response.filter((product) => product.featured);
         return { products: response, featuredProducts };
       },
+      providesTags: (result, error, arg) =>
+        result
+          ? [...result.map(({ id }) => ({ type: "Product", id })), "Product"]
+          : ["Product"],
+    }),
+    getProduct: builder.query({
+      query: (productId) => `/react-store-single-product?id=${productId}`,
+      providesTags: (result, error, arg) => [{ type: "Product", id: arg.id }],
     }),
   }),
 });
 
-export const { useGetAllProductsQuery } = shopApi;
+export const { useGetAllProductsQuery, useGetProductQuery } = shopApi;
