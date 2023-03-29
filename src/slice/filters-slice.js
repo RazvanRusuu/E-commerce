@@ -24,6 +24,7 @@ const filterSlice = createSlice({
       let maxPrice = Math.max(...products?.map((product) => product.price));
 
       state.all_products = products;
+      state.filtered_products = products;
       state.filters.max_price = maxPrice;
       state.filters.price = maxPrice;
     },
@@ -34,9 +35,13 @@ const filterSlice = createSlice({
       state.grid_view = false;
     },
     updateSort: (state, { payload }) => {
+      console.log(payload);
       state.sort = payload;
     },
-    updateFilters: (state, { payload }) => {},
+    updateFilters: (state, { payload }) => {
+      const { name, value } = payload;
+      state.filters[name] = value;
+    },
     clearFilters: (state, { payload }) => {
       state.filters = initialState.filters;
     },

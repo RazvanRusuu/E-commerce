@@ -1,12 +1,8 @@
 import React from "react";
 import Aos from "aos";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import { Home, SingleProduct, Cart, Error, About, Products } from "./pages";
 import { Navbar, Sidebar, Footer } from "./components/index";
-import { store } from "./store/store";
-import { Provider } from "react";
 
 function App() {
   // initiliaze AOS library

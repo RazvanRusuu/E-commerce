@@ -1,15 +1,28 @@
 import React from "react";
-import { useFilterContext } from "../context/filter_context";
+import { useDispatch, useSelector } from "react-redux";
+import { clearFilters, updateFilters } from "../slice/filters-slice";
 import { getUniqueValues } from "../utils/helpers";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = (props) => {
+  const dispatch = useDispatch();
   const {
     filters: { text, category, company, price, max_price, min_price },
-    updateFilters,
-    clearFilters,
     all_products,
-  } = useFilterContext();
+  } = useSelector((state) => state.filters);
+
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+
+    if (name === "category") {
+      value = e.target.textContent;
+    }
+    if (name === "price") {
+      value = +value;
+    }
+
+    dispatch(updateFilters({ name, value }));
+  };
 
   const categories = getUniqueValues(
     all_products.map((product) => product.category)
@@ -25,8 +38,9 @@ const Filters = (props) => {
           <input
             type="text"
             name="text"
+            value={text}
             placeholder="search"
-            onChange={updateFilters}
+            onChange={handleChange}
           />
         </div>
 
@@ -47,7 +61,7 @@ const Filters = (props) => {
                     }`}
                     name="category"
                     type="button"
-                    onClick={updateFilters}
+                    onClick={handleChange}
                   >
                     {item}
                   </button>
@@ -63,7 +77,7 @@ const Filters = (props) => {
             name="company"
             id="company"
             value={company}
-            onChange={updateFilters}
+            onChange={handleChange}
           >
             {companies.map((company, index) => (
               <option key={index} value={company}>
@@ -83,14 +97,14 @@ const Filters = (props) => {
             min={min_price}
             max={max_price}
             value={price}
-            onChange={updateFilters}
+            onChange={handleChange}
           />
         </div>
 
         <div className="form-control">
           <button
             className="btn btn-main btn-main--small"
-            onClick={clearFilters}
+            onClick={() => dispatch(clearFilters())}
           >
             Clear Filters
           </button>

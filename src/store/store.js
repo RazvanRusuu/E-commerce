@@ -15,6 +15,8 @@ export const store = configureStore({
   },
 
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(shopApi.middleware),
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }).concat(shopApi.middleware),
 });
 setupListeners(store.dispatch);

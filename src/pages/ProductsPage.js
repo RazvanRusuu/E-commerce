@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PageHero } from "../components";
-
+import { useGetAllProductsQuery } from "../slice/api-slice";
+import { loadProducts } from "../slice/filters-slice";
+import { useDispatch } from "react-redux";
 import { Filters, Sort, ProductList } from "../components";
 
 const ProductsPage = () => {
+  const dispatch = useDispatch();
+
+  const {
+    data = {},
+    isFetching,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useGetAllProductsQuery();
+  const { products: allProducts } = data;
+
+  useEffect(() => {
+    isSuccess && dispatch(loadProducts(allProducts));
+  }, [data]);
+
   return (
     <>
       <PageHero title="Products" />

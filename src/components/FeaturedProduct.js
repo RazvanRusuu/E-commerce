@@ -4,11 +4,8 @@ import { useGetAllProductsQuery } from "../slice/api-slice";
 import { Link } from "react-router-dom";
 import Error from "./Error";
 import Loading from "./Loading";
-import { loadProducts } from "../slice/filters-slice";
-import { useDispatch } from "react-redux";
 
 const FeaturedProduct = () => {
-  const dispatch = useDispatch();
   const {
     data = {},
     isFetching,
@@ -16,11 +13,7 @@ const FeaturedProduct = () => {
     isError,
     isSuccess,
   } = useGetAllProductsQuery();
-  const { products: allProducts, featuredProducts } = data;
-
-  useEffect(() => {
-    isSuccess && dispatch(loadProducts(allProducts));
-  }, [data]);
+  const { featuredProducts } = data;
 
   return (
     <section
