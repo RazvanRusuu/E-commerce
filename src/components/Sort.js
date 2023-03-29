@@ -1,15 +1,18 @@
 import React from "react";
-import { useFilterContext } from "../context/filter_context";
 import { BsFillGridFill, BsList } from "react-icons/bs";
+import { updateSort, setListView, setGridView } from "../slice/filters-slice";
+import { useDispatch, useSelector } from "react-redux";
 const Sort = () => {
+  const dispatch = useDispatch();
   const {
-    filtered_products: products,
     grid_view,
-    setGridView,
-    setListView,
     sort,
-    updateSort,
-  } = useFilterContext();
+    filtered_products: products,
+  } = useSelector((state) => state.filters);
+
+  const handleChange = (e) => {
+    dispatch(updateSort(e.target.value));
+  };
 
   return (
     <section className="section__sort">
@@ -17,13 +20,13 @@ const Sort = () => {
         <div className="btn-container">
           <button
             className={`btn btn__icon ${grid_view ? "active" : null}`}
-            onClick={setGridView}
+            onClick={() => dispatch(setGridView())}
           >
             <BsFillGridFill />
           </button>
           <button
             className={`btn btn__icon ${!grid_view ? "active" : null}`}
-            onClick={setListView}
+            onClick={() => dispatch(setListView())}
           >
             <BsList />
           </button>
@@ -37,7 +40,7 @@ const Sort = () => {
             value={sort}
             id="sort"
             className="sort-input"
-            onChange={updateSort}
+            onChange={handleChange}
           >
             <option value="price-lowest">Price (lowest)</option>
             <option value="price-highest">Price (highest)</option>

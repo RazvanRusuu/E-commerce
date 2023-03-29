@@ -35,7 +35,6 @@ const filterSlice = createSlice({
       state.grid_view = false;
     },
     updateSort: (state, { payload }) => {
-      console.log(payload);
       state.sort = payload;
     },
     updateFilters: (state, { payload }) => {

@@ -4,6 +4,7 @@ import { useGetAllProductsQuery } from "../slice/api-slice";
 import { loadProducts } from "../slice/filters-slice";
 import { useDispatch } from "react-redux";
 import { Filters, Sort, ProductList } from "../components";
+import { Loading, Error } from "../components";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
@@ -21,18 +22,29 @@ const ProductsPage = () => {
     isSuccess && dispatch(loadProducts(allProducts));
   }, [data]);
 
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (isError) {
+    return <Error />;
+  }
+
   return (
     <>
-      <PageHero title="Products" />
-      <section className="section__products">
-        <div className="container grid grid-2--cols-products">
-          <Filters />
-          <div className="products-container">
-            <Sort />
-            <ProductList />
-          </div>
-        </div>
-      </section>
+      {isSuccess && (
+        <>
+          <PageHero title="Products" />
+          <section className="section__products">
+            <div className="container grid grid-2--cols-products">
+              <Filters />
+              <div className="products-container">
+                <Sort />
+                <ProductList />
+              </div>
+            </div>
+          </section>
+        </>
+      )}
     </>
   );
 };
