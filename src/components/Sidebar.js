@@ -1,14 +1,16 @@
-import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
-import { useProductsContext } from "../context/products_context";
 import { useUserContext } from "../context/user_context";
+import { closeSidebar } from "../slice/products-slice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Sidebar = () => {
-  const { isSidebarOpen, closeSidebar } = useProductsContext();
+  const { isSidebarOpen } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
   const { openModal } = useUserContext();
 
   return (
@@ -17,7 +19,7 @@ const Sidebar = () => {
         <div className="sidebar__header">
           <img src={logo} alt="logo" className="header__logo" />
           <button
-            onClick={closeSidebar}
+            onClick={() => dispatch(closeSidebar())}
             type="button"
             className="btn btn-close"
           >
@@ -32,7 +34,7 @@ const Sidebar = () => {
                 <Link
                   to={url}
                   className="link sidebar__link"
-                  onClick={closeSidebar}
+                  onClick={() => dispatch(closeSidebar())}
                 >
                   {text}
                 </Link>

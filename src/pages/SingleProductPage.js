@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useProductsContext } from "../context/products_context";
-import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
 import { useGetProductQuery } from "../slice/api-slice";
 
@@ -19,7 +17,6 @@ const SingleProductPage = () => {
     data: product = {},
     isSuccess,
     isError,
-    isFetching,
     isLoading,
   } = useGetProductQuery(id);
 

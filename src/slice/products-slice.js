@@ -21,9 +21,6 @@ const productsSlice = createSlice({
     closeSidebar: (state, { payload }) => {
       state.isSidebarOpen = false;
     },
-    addFeaturedProduct: (state, { payload }) => {
-      // state.featured_products =
-    },
   },
 });
 

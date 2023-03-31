@@ -1,18 +1,16 @@
-import React from "react";
 import logo from "../assets/logo.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
 import Modal from "./Modal";
-
+import { openSidebar } from "../slice/products-slice";
 import { useUserContext } from "../context/user_context";
-import { useProductsContext } from "../context/products_context";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
-  const { openSidebar } = useProductsContext();
+  const dispatch = useDispatch();
   const { openModal, isModalOpen } = useUserContext();
-
   return (
     <>
       {isModalOpen && <Modal></Modal>}
@@ -26,7 +24,7 @@ const Navbar = () => {
           <button
             type="button"
             className="btn btn-toggle"
-            onClick={openSidebar}
+            onClick={() => dispatch(openSidebar())}
           >
             <FaBars />
           </button>

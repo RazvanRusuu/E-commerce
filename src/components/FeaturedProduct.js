@@ -6,13 +6,7 @@ import Error from "./Error";
 import Loading from "./Loading";
 
 const FeaturedProduct = () => {
-  const {
-    data = {},
-    isFetching,
-    isLoading,
-    isError,
-    isSuccess,
-  } = useGetAllProductsQuery();
+  const { data = {}, isLoading, isError, isSuccess } = useGetAllProductsQuery();
   const { featuredProducts } = data;
 
   return (
