@@ -30,48 +30,28 @@ const filterSlice = createSlice({
     },
     sortProducts: (state) => {
       const { sort } = state;
-      switch (sort) {
-        case "price-lowest":
-          state.filtered_products.sort((a, b) => a.price - b.price);
-          break;
-        case "price-highest":
-          state.filtered_products.sort((a, b) => b.price - a.price);
-          break;
-        case "name-a":
-          state.filtered_products.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-        case "name-z":
-          state.filtered_products.sort((a, b) => b.name.localeCompare(a.name));
-          break;
-        default:
-          break;
+      const sortFunctions = {
+        "price-lowest": (a, b) => a.price - b.price,
+        "price-highest": (a, b) => b.price - a.price,
+        "name-a": (a, b) => a.name.localeCompare(b.name),
+        "name-z": (a, b) => b.name.localeCompare(a.name),
+      };
+
+      if (sortFunctions.hasOwnProperty(sort)) {
+        state.filtered_products.sort(sortFunctions[sort]);
       }
     },
     filterProducts: (state) => {
-      const {
-        filters: { price, text, category, company },
-      } = state;
-      let tempProducts = [...state.all_products];
-      if (text) {
-        tempProducts = tempProducts.filter((product) =>
-          product?.name?.toLowerCase().startsWith(text)
-        );
-      }
-      if (category !== "all") {
-        tempProducts = tempProducts.filter(
-          (product) => product.category === category
-        );
-      }
-      if (company !== "all") {
-        tempProducts = tempProducts.filter(
-          (product) => product.company === company
-        );
-      }
-      if (price >= 0) {
-        tempProducts = tempProducts.filter((product) => product.price <= price);
-      }
+      const { price, text, category, company } = state.filters;
 
-      state.filtered_products = tempProducts;
+      state.filtered_products = state.all_products.filter((product) => {
+        return (
+          product.name.toLowerCase().startsWith(text) &&
+          (category === "all" || product.category === category) &&
+          (company === "all" || product.company === company) &&
+          product.price <= price
+        );
+      });
     },
     setGridView: (state) => {
       state.grid_view = true;
@@ -87,7 +67,12 @@ const filterSlice = createSlice({
       state.filters[name] = value;
     },
     clearFilters: (state) => {
-      state.filters = initialState.filters;
+      const maxPrice = state.filters.max_price;
+      state.filters = {
+        ...initialState.filters,
+        price: maxPrice,
+        max_price: maxPrice,
+      };
     },
   },
 });

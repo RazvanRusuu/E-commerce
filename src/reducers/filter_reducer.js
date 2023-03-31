@@ -1,4 +1,3 @@
-import React from "react";
 import {
   LOAD_PRODUCTS,
   SET_GRIDVIEW,

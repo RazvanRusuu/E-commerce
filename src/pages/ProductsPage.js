@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { PageHero } from "../components";
 import { useGetAllProductsQuery } from "../slice/api-slice";
 import { loadProducts } from "../slice/filters-slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Filters, Sort, ProductList } from "../components";
 import { Loading, Error } from "../components";
 
