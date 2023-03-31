@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearFilters, updateFilters } from "../slice/filters-slice";
+import {
+  clearFilters,
+  updateFilters,
+  sortProducts,
+  filterProducts,
+} from "../slice/filters-slice";
 import { getUniqueValues } from "../utils/helpers";
 import { formatPrice } from "../utils/helpers";
 
 const Filters = (props) => {
   const dispatch = useDispatch();
   const {
+    sort,
+    filters,
     filters: { text, category, company, price, max_price, min_price },
-    all_products,
+    all_products: products,
   } = useSelector((state) => state.filters);
 
   const handleChange = (e) => {
@@ -24,12 +31,15 @@ const Filters = (props) => {
     dispatch(updateFilters({ name, value }));
   };
 
+  useEffect(() => {
+    dispatch(filterProducts());
+    dispatch(sortProducts());
+  }, [products, sort, filters]);
+
   const categories = getUniqueValues(
-    all_products.map((product) => product.category)
+    products.map((product) => product.category)
   );
-  const companies = getUniqueValues(
-    all_products.map((product) => product.company)
-  );
+  const companies = getUniqueValues(products.map((product) => product.company));
 
   return (
     <aside className="filters">

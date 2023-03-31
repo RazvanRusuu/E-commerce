@@ -28,10 +28,55 @@ const filterSlice = createSlice({
       state.filters.max_price = maxPrice;
       state.filters.price = maxPrice;
     },
-    setGridView: (state, { payload }) => {
+    sortProducts: (state) => {
+      const { sort } = state;
+      switch (sort) {
+        case "price-lowest":
+          state.filtered_products.sort((a, b) => a.price - b.price);
+          break;
+        case "price-highest":
+          state.filtered_products.sort((a, b) => b.price - a.price);
+          break;
+        case "name-a":
+          state.filtered_products.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case "name-z":
+          state.filtered_products.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+        default:
+          break;
+      }
+    },
+    filterProducts: (state) => {
+      const {
+        filters: { price, text, category, company },
+      } = state;
+      let tempProducts = [...state.all_products];
+      if (text) {
+        tempProducts = tempProducts.filter((product) =>
+          product?.name?.toLowerCase().startsWith(text)
+        );
+      }
+      if (category !== "all") {
+        tempProducts = tempProducts.filter(
+          (product) => product.category === category
+        );
+      }
+      if (company !== "all") {
+        tempProducts = tempProducts.filter(
+          (product) => product.company === company
+        );
+      }
+      if (price >= 0) {
+        tempProducts = tempProducts.filter((product) => product.price <= price);
+      }
+
+      state.filtered_products = tempProducts;
+    },
+    setGridView: (state) => {
       state.grid_view = true;
     },
-    setListView: (state, { payload }) => {
+    setListView: (state) => {
       state.grid_view = false;
     },
     updateSort: (state, { payload }) => {
@@ -41,7 +86,7 @@ const filterSlice = createSlice({
       const { name, value } = payload;
       state.filters[name] = value;
     },
-    clearFilters: (state, { payload }) => {
+    clearFilters: (state) => {
       state.filters = initialState.filters;
     },
   },
@@ -54,5 +99,7 @@ export const {
   updateSort,
   updateFilters,
   clearFilters,
+  sortProducts,
+  filterProducts,
 } = filterSlice.actions;
 export default filterSlice.reducer;

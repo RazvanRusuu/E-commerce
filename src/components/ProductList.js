@@ -1,10 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useFilterContext } from "../context/filter_context";
 import GridView from "./GridView";
 import ListView from "./ListView";
 
 const ProductList = () => {
-  const { filtered_products: products, grid_view } = useFilterContext();
+  const { filtered_products: products, grid_view } = useSelector(
+    (state) => state.filters
+  );
 
   if (products.length < 1) {
     return (
